@@ -1,10 +1,24 @@
 <h1>All heroes services</h1>
 
-<ul>
-  <% @services.each do |service| %>
-    <li><%= service.name %></li>
-    <li><%= service.description %></li>
-    <li><%= service.address %></li>
-    <li><%= service.user.username %></li>
-  <% end %>
-</ul>
+  <div class="container">
+    <div class="row">
+        <% @services.each do |service| %>
+          <% if service.photos.any?%>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="card-power">
+                <%= cl_image_tag service.photos.first.key %>
+                <div class="card-power-infos">
+                  <div>
+                    <h2><%= link_to service.name, service_path(service) %></h2>
+                    <p><%= service.user.username %></p>
+                  </div>
+                  <h2 class="card-power-address"><%= service.address %></h2>
+                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+
