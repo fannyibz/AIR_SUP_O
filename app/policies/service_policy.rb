@@ -12,5 +12,4 @@ class ServicePolicy < ApplicationPolicy
   def create?
     true
   end
-
 end
