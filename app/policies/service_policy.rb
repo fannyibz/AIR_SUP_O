@@ -14,14 +14,20 @@ class ServicePolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == user
+    service_owner?
   end
 
   def update?
-    record.user == user
+    service_owner?
   end
 
   def destroy?
+    service_owner?
+  end
+
+  private
+
+  def service_owner?
     record.user == user
   end
 end
