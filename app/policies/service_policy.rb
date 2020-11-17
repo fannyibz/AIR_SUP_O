@@ -12,4 +12,16 @@ class ServicePolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def edit?
+    record.user == user
+  end
+
+  def update?
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
+  end
 end

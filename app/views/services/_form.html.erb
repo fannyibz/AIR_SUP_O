@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+
+        <%= simple_form_for service do |f| %>
+          <%= f.input :name %>
+          <%= f.input :description %>
+          <%= f.input :address %>
+          <%= f.input :photos, as: :file, input_html: {multiple: true} %>
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+        <% end %>
+
+    </div>
+  </div>
+</div>
