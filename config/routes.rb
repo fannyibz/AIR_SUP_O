@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :services do
     resources :bookings, only: [:index, :create]
   end
-
   resources :reviews, only: [:create]
 
   resources :bookings, only: [:destroy]
