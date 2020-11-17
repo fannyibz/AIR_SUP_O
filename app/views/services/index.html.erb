@@ -1,2 +1,10 @@
 <h1>All heroes services</h1>
 
+<ul>
+  <% @services.each do |service| %>
+    <li><%= service.name %></li>
+    <li><%= service.description %></li>
+    <li><%= service.address %></li>
+    <li><%= service.user.username %></li>
+  <% end %>
+</ul>
