@@ -1,4 +1,5 @@
 class ServicesController < ApplicationController
+  before_action :find_service, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -6,7 +7,6 @@ class ServicesController < ApplicationController
   end
 
   def show
-    @service = Service.find(params[:id])
     authorize @service
   end
 
@@ -27,20 +27,30 @@ class ServicesController < ApplicationController
   end
 
   def edit
+    authorize @service
   end
 
   def update
+    @service.update(services_params)
+    authorize @service
+
+    redirect_to service_path(@service)
   end
 
   def destroy
+    @service.destroy
+    authorize @service
+
+    redirect_to services_path
   end
 
   private
+
+  def find_service
+    @service = Service.find(params[:id])
+  end
+
   def services_params
     params.require(:service).permit(:name, :description, :address, photos: [])
   end
-
-
-
-
 end
