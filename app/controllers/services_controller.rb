@@ -5,6 +5,8 @@ class ServicesController < ApplicationController
   end
 
   def show
+    @service = Service.find(params[:id])
+    authorize @service
   end
 
   def new
