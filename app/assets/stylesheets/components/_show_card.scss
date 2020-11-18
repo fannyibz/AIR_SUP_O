@@ -1,0 +1,68 @@
+.text-centered {
+  text-align: center;
+}
+
+.title-big {
+  margin-top: 16px;
+  font-size: 36px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+
+
+.card-show-power {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+// .card-show-power h2 {
+//   font-size: 16px;
+//   font-weight: bold;
+//   margin: 0;
+// }
+// img.card-show-trip-user.avatar-bordered {
+//   margin-right: 15px;
+// }
+
+.card-show-power-address {
+  font-size: 10px;
+  font-weight: lighter;
+  margin: 0;
+}
+
+.card-show-power > img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-show-power p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-show-power .card-show-power-infos {
+  padding: 16px;
+  // position: relative;
+}
+
+// .card-show-power-infos .card-show-power-user {
+//   // position: absolute;
+//   right: 16px;
+//   top: -20px;
+//   width: 40px;
+// }
+
+.form-border {
+  border: 1px solid #0000001f;
+  text-align: center;
+}
+
+
+

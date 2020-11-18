@@ -1,20 +1,38 @@
-<h1> 🦸‍♂️ Super service detail 🦸‍♀️ </h1>
-<br>
-<h3> <%= @service.name %></h3>
-<p>🎟 Description: <%= @service.description %></p>
-<p>🗺 Location: this service is available in <%= @service.address %>.</p>
-<p>🧚‍♀️ Hero:  service proposed by <%= @service.user.username %>.</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <%= link_to "Back to power list", services_path, class: "btn btn-primary mt-3" %>
+      <h1 class= "text-centered mt-3 mb-5"> 🦸‍♂️ Super service details 🦸‍♀️ </h1>
+        <div class="card-show-power mt-3">
+          <% if @service.photos.any?%>
+            <%= cl_image_tag @service.photos.first.key %>
+          <% end %>
+          <h2 class= "text-centered title-big"><%= @service.name %></h2>
+          <div class="card-show-power-infos d-flex justify-content-around">
+              <div class="m-2 p-3">
+                <h3>🎟 Description:</h3>
 
- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                <p><%= @service.description %></p>
+              </div>
+              <div class="m-2">
+                <h3>🗺 Location: </h3>
+                <p>this service is available in</p>
+                <p><%= @service.address %></p>
+              </div>
+              <div class="mt-5 ml-3">
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-<br>
-<br>
-
-<%= link_to "Back to power list", services_path %>
 <br>
 <% if policy(@service).edit? %>
-  <%= link_to "Edit this service", edit_service_path %>
+  <%= link_to "Edit this service", edit_service_path, class: "btn btn-primary" %>
 <% end %>
 <br>
 <% if policy(@service).destroy? %>
@@ -24,23 +42,21 @@
               data: { confirm: "Are you sure?" } %>
 <% end %>
 <br>
-  <% if @service.photos.any?%>
-    <%= cl_image_tag @service.photos.first.key %>
-  <% end %>
-
 
 
 <div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
-      <% if current_user != @service.user %>
-        <%= simple_form_for ([@service, @booking]) do |f| %>
-          <%= f.input :start_date, label: "Start date" %>
-          <%= f.input :end_date, label: "End date" %>
-          <%= f.submit "Flower power!", class: "btn btn-primary" %>
+  <h2 class= "text-centered title-big">Book this service </h2>
+    <div class="row">
+      <div class="col-8 offset-2">
+        <% if current_user != @service.user %>
+          <%= simple_form_for ([@service, @booking]) do |f| %>
+          <div class="form-border p-3">
+            <%= f.input :start_date, label: "Start date" %>
+            <%= f.input :end_date, label: "End date" %>
+            <%= f.submit "Flower power!", class: "btn btn-primary mt-2" %>
+          </div>
         <% end %>
       <% end %>
-
     </div>
   </div>
 </div>
