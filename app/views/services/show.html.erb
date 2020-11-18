@@ -18,16 +18,20 @@
                 </div>
               </div>
               <div class="card-show-power-infos d-flex justify-content-around">
-                  <div class="">
+                  <div class="m-2 p-3">
                     <h3>🎟 Description:</h3>
-
                     <p><%= @service.description %></p>
                   </div>
-                  <div class="">
+                  <div class="m-2">
                     <h3>🗺 Location: </h3>
                     <p>this service is available in</p>
                     <p><%= @service.address %></p>
                   </div>
+                 <div class="m-2">
+                    <h3>€ Price: </h3>
+                  <p>What's your price?</p>
+                  <p><%= @service.price %></p>
+                </div>
               </div>
             </div>
           </div>
@@ -35,8 +39,6 @@
       </div>
     </div>
   </div>
-
-
 <% if policy(@service).edit? %>
   <%= link_to "Edit this service", edit_service_path, class: "btn btn-primary" %>
 <% end %>
@@ -47,8 +49,6 @@
               method: :delete,
               data: { confirm: "Are you sure?" } %>
 <% end %>
-
-
 <div class="container">
   <h2 class= "text-centered title-big">Book this service </h2>
     <div class="row">
@@ -65,4 +65,3 @@
     </div>
   </div>
 </div>
-

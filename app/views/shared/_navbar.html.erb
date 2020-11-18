@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to "http://localhost:3000/", class: "navbar-brand" do %>
     <%= image_tag "marvel.jpg" %>
   <% end %>
 
@@ -18,6 +18,9 @@
           </li>
            <li class="nav-item">
             <%= link_to "Access powers 💊", services_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "My dashboard 🦹‍♂️", dashboard_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "joker.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
