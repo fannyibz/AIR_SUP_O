@@ -1,7 +1,8 @@
-<h1>All heroes services</h1>
 
   <div class="container">
-    <div class="row">
+    <h1>All heroes services</h1>
+      <div class="row">
+
         <% @services.each do |service| %>
           <% if service.photos.any?%>
             <div class="col-sm-12 col-md-6 col-lg-4">
@@ -13,7 +14,7 @@
                     <p><%= service.user.username %></p>
                   </div>
                   <h2 class="card-power-address"><%= service.address %></h2>
-                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                  <%= cl_image_tag service.user.avatar.key, class: "card-trip-user avatar-bordered" %>
                 </div>
               </div>
             </div>
