@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
   has_many :services, dependent: :destroy
+  has_many :bookings_owner, through: :services, source: :bookings
   has_one_attached :avatar
 end

@@ -30,3 +30,18 @@
 
 
 
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <% if current_user != @service.user %>
+        <%= simple_form_for ([@service, @booking]) do |f| %>
+          <%= f.input :start_date, label: "Start date" %>
+          <%= f.input :end_date, label: "End date" %>
+          <%= f.submit "Flower power!", class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+

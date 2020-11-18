@@ -8,6 +8,7 @@ class ServicesController < ApplicationController
 
   def show
     authorize @service
+    @booking = Booking.new
   end
 
   def new
