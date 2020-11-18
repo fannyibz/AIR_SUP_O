@@ -57,7 +57,7 @@ avatar_photo = [
   "https://medias.bangcast.io/podcast_card_cover/hadrien-5eac1b363aca2581817512.jpg"
 ]
 
-puts "Creating 10 fake user heros..."
+puts "Creating 5 fake user heros..."
 5.times do |i|
   username = Faker::DcComics.hero
 
@@ -69,7 +69,6 @@ puts "Creating 10 fake user heros..."
   )
 
   link = avatar_photo[i]
-  p link
 
   file = URI.open(link)
   user.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
@@ -93,7 +92,7 @@ service_photos = [
 ]
 
 puts "Creating 10 fake hero services..."
-10.times do
+10.times do |i|
   user = User.pluck(:id).sample
 
   service = Service.new(
@@ -103,16 +102,21 @@ puts "Creating 10 fake hero services..."
     user_id: user
   )
 
-  (1..2).to_a.sample.times do
-    service.photos.attach(io: URI.open(service_photos.sample), filename: 'photos', content_type: 'image/png')
-  end
-  service.save!
+  link = service_photos[i]
 
+  file = URI.open(link)
+  service.photos.attach(io: file, filename: "service", content_type: "image/jpg")
+  service.save!
+  
   puts "#{service.name} created!"
 end
 
 puts "Finished!"
 
+# (1..2).to_a.sample.times do
+#   service.photos.attach(io: URI.open(service_photos.sample), filename: 'photos', content_type: 'image/png')
+# end
+# service.save!
 
 
 
