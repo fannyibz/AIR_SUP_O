@@ -1,0 +1,26 @@
+.footer {
+  background: #232323;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 125px;
+  padding: 0px 50px;
+  color: white;
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+
+.footer-links a {
+  color: white;
+  font-size: 24px;
+  padding: 0px 10px;
+  &:hover {
+    color: yellow;
+  }
+}
