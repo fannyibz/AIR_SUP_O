@@ -1,55 +1,58 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2">
-
+    <div class="col-12">
+      <%= link_to "Back to power list", services_path, class: "btn btn-primary mt-3" %>
       <h1 class= "text-centered mt-3 mb-5"> 🦸‍♂️ Super service details 🦸‍♀️ </h1>
-        <div class="card-show-power mt-3">
-          <% if @service.photos.any?%>
-            <%= cl_image_tag @service.photos.first.key %>
-          <% end %>
-          <h2 class= "text-centered title-big"><%= @service.name %></h2>
-          <div class="card-show-power-infos d-flex justify-content-around">
-              <div class="m-2 p-3">
-                <h3>🎟 Description:</h3>
-                <p><%= @service.description %></p>
+        <div class="container mt-3 card-show-power">
+          <div class="row">
+            <div class="col-4 card-show-power">
+              <% if @service.photos.any?%>
+                <%= cl_image_tag @service.photos.first.key %>
+              <% end %>
+            </div>
+            <div class="col-8">
+              <div class="d-flex justify-content-between">
+                <h2 class= "title-big"><%= @service.name %></h2>
+                <div class="mt-2">
+                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
+                </div>
               </div>
-              <div class="m-2">
-                <h3>🗺 Location: </h3>
-                <p>this service is available in</p>
-                <p><%= @service.address %></p>
+              <div class="card-show-power-infos d-flex justify-content-around">
+                  <div class="m-2 p-3">
+                    <h3>🎟 Description:</h3>
+                    <p><%= @service.description %></p>
+                  </div>
+                  <div class="m-2">
+                    <h3>🗺 Location: </h3>
+                    <p>this service is available in</p>
+                    <p><%= @service.address %></p>
+                  </div>
+                 <div class="m-2">
+                    <h3>€ Price: </h3>
+                  <p>What's your price?</p>
+                  <p><%= @service.price %></p>
+                </div>
               </div>
-              <div class="m-2 p-3">
-                <i class="fas fa-euro-sign"></i><h3> Price:</h3>
-                <p><%= @service.price %>€</p>
-              </div>
-              <div class="mt-5 ml-3">
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
-              </div>
-
+            </div>
           </div>
         </div>
       </div>
-      <%= link_to "Back to power list", services_path, class: "btn btn-primary" %>
-      <br>
-      <% if policy(@service).edit? %>
-        <%= link_to "Edit this service", edit_service_path, class: "btn btn-primary" %>
-      <% end %>
-      <br>
-      <% if policy(@service).destroy? %>
-        <%= link_to "Delete #{@service.name}",
-                    service_path(@service),
-                    class: "btn btn-primary",
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %>
-      <% end %>
-      <br>
     </div>
   </div>
-
-
-
-
+<% if policy(@service).edit? %>
+  <%= link_to "Edit this service", edit_service_path, class: "btn btn-primary" %>
+<% end %>
+<br>
+<% if policy(@service).destroy? %>
+  <%= link_to "Delete #{@service.name}",
+              service_path(@service),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+<% end %>
+<div class="container">
   <h2 class= "text-centered title-big">Book this service </h2>
+    <div class="row">
+      <div class="col-8 offset-2">
         <% if current_user != @service.user %>
           <%= simple_form_for ([@service, @booking]) do |f| %>
           <div class="form-border p-3">
@@ -60,6 +63,5 @@
         <% end %>
       <% end %>
     </div>
-
+  </div>
 </div>
-
