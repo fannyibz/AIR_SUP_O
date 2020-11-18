@@ -5,5 +5,28 @@
 <p>🗺 Location: this service is available in <%= @service.address %>.</p>
 <p>🧚‍♀️ Hero:  service proposed by <%= @service.user.username %>.</p>
 
+ <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+
+
+<br>
+<br>
+
 <%= link_to "Back to power list", services_path %>
+<br>
+<% if policy(@service).edit? %>
+  <%= link_to "Edit this service", edit_service_path %>
+<% end %>
+<br>
+<% if policy(@service).destroy? %>
+  <%= link_to "Delete #{@service.name}",
+              service_path(@service),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+<% end %>
+<br>
+  <% if @service.photos.any?%>
+    <%= cl_image_tag @service.photos.first.key %>
+  <% end %>
+
+
 
