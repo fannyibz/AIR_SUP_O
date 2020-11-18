@@ -1,3 +1,19 @@
+body {
+  background-image: url(last.jpg);
+  background-attachment: fixed;
+}
+
+#card-container {
+  padding-bottom: 15px;
+}
+
+#hero-title {
+  margin-bottom: 15px;
+  color: black;
+  border-radius: 50px;
+  text-align: center;
+}
+
 .card-power {
   overflow: hidden;
   background: white;

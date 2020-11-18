@@ -1,11 +1,11 @@
 
   <div class="container">
-    <h1>All heroes services</h1>
+    <h1 id="hero-title">All heroes services</h1>
       <div class="row">
 
         <% @services.each do |service| %>
           <% if service.photos.any?%>
-            <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="col-sm-12 col-md-6 col-lg-4" id="card-container">
               <div class="card-power">
                 <%= cl_image_tag service.photos.first.key %>
                 <div class="card-power-infos">
