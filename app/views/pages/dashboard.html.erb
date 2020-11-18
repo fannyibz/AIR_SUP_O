@@ -1,7 +1,56 @@
+
+<h1>My profil</h2>
 <div class="container">
-<h2>My bookings</h2>
-<%= @bookings_client.first.service.name %>
-<h2>People booked my services</h2>
-<%= @bookings_owner %>
-</div>
+  <div class="row justify-content-between">
+
+    <div class="col-sm-12 col-lg-6">
+        <div class="row">
+          <div class="container profile">
+            <h2><%= current_user.username %></h3>
+            <p><%= current_user.bio %></p>
+          </div>
+        </div>
+      </div>
+
+    <div class="bookings col-sm-12 col-lg-6">
+
+      <% if @bookings_owner.present? %>
+          <h2>Power reservation</h2>
+        <div class="row">
+          <% @bookings_owner.each do |booking| %>
+            <div class="col-sm-6">
+              <div class="card-power">
+                <%= cl_image_tag booking.service.photos.first.key %>
+                <div class="card-power-infos">
+                  <%= booking.user.username  %>
+                  <%= booking.service.name %>
+                  <h2 class="card-power-date"><%= booking.start_date %></h2>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+          <h2>Meeting with mu hero</h2>
+        <div class="row">
+          <% @bookings_client.each do |booking| %>
+            <div class="col-sm-6">
+              <div class="card-power">
+                <%= cl_image_tag booking.service.photos.first.key %>
+                <div class="card-power-infos">
+                  <%= booking.user.username  %>
+                  <%= booking.service.name %>
+                  <h2 class="card-power-date"><%= booking.start_date %></h2>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <p>You have no booking </p>
+      <% end %>
+
+
+    </div>
+
+
 
