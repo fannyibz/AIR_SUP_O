@@ -1,8 +1,8 @@
 
-  <div class="container">
+  <div class="container-fluid mt-5">
     <h1 id="hero-title">All heroes services</h1>
     <br>
-          <div class="search-form-control form-group">
+          <div class="search-form-control form-group container">
 
             <div class="item">
             <%= form_tag services_path, method: :get do %>
@@ -46,7 +46,7 @@
           </div>
 
       <div class="row">
-        <div class="col-8" id="card-container">
+        <div class="col-8" id="card-container mt-3">
           <div class="container">
             <div class="row">
 
@@ -75,7 +75,7 @@
           </div>
         </div>
 
-        <div class="col-4" id="card-container">
+        <div class="col-4 mt-4" id="card-container">
           <div id="map"
             style="width: 100%; height: 600px;"
             data-markers="<%= @markers.to_json %>"
