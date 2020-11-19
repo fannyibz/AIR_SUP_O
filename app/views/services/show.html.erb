@@ -92,11 +92,18 @@
         <% if current_user != @service.user %>
           <%= simple_form_for ([@service, @booking]) do |f| %>
           <div class="form-border p-3">
-            <%= f.input :start_date, label: "Start date" %>
-            <%= f.input :end_date, label: "End date" %>
+            <%= f.input :start_date, label: "Start date", class: "datepicker", id: "range_start" %>
+            <%= f.input :end_date, label: "End date", class: "datepicker", id: "range_end" %>
             <%= f.submit "Flower power!", class: "btn btn-primary mt-2" %>
           </div>
         <% end %>
       <% end %>
     </div>
+
+
+    <%= simple_form_for :search, method: "get" do |f| %>
+      <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
+      <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
+      <%= f.button :submit, "Go", class: "btn btn-primary" %>
+    <% end %>
 

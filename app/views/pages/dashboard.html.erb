@@ -29,7 +29,7 @@
             </div>
           <% end %>
         </div>
-          <h2>Meeting with mu hero</h2>
+          <h2>Meeting with my hero</h2>
         <div class="row">
           <% @bookings_client.each do |booking| %>
             <div class="col-sm-6">
@@ -45,7 +45,20 @@
           <% end %>
         </div>
       <% else %>
-        <p>You have no booking </p>
+        <h2>Meeting with my hero</h2>
+        <div class="row">
+          <% @bookings_client.each do |booking| %>
+            <div class="col-sm-6">
+              <div class="card-power">
+                <%= cl_image_tag booking.service.photos.first.key %>
+                <div class="card-power-infos">
+                  <%= booking.user.username  %>
+                  <%= booking.service.name %>
+                  <h2 class="card-power-date"><%= booking.start_date %></h2>
+                </div>
+              </div>
+            </div>
+          <% end %>
       <% end %>
 
 
