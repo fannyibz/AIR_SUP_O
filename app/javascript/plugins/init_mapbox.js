@@ -27,7 +27,7 @@ const initMapbox = () => {
           .addTo(map);
       });
     };
-    fitMapToMarkers(map, markers);
+    // fitMapToMarkers(map, markers);
     addMarkersToMap(map, markers);
   }
 };
