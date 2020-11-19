@@ -26,6 +26,9 @@ require("channels")
 import "bootstrap";
 import { loadDynamicBannerText } from '../components/banner';
 
+// Import calendar for search bar
+import "../plugins/flatpickr"
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
