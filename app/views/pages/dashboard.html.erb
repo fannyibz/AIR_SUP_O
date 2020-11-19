@@ -1,15 +1,18 @@
 <div class="container">
-  <h1 id="hero-title">My profile</h1>
-  <div class="row justify-content-between">
+  <h1 class="pt-5 mb-5 text-center"><%= "Hello, #{current_user.username}. How are you?" %></h1>
 
+  <div class="row justify-content-between">
     <div class="col-sm-12 col-lg-6">
-        <div class="row">
-          <div class="container profile">
-            <h2><%= current_user.username %></h3>
-            <p><%= current_user.bio %></p>
-          </div>
+      <div class="row">
+        <div class="profile">
+          <%= cl_image_tag current_user.avatar.key, class: "avatar-dashboard" %>
+          <h2>YOUR INFOS:</h2>
+          <p><%= "Email: #{current_user.email}" %></p>
+          <p>Password: ******</p>
+          <p><%= "Punchline: #{current_user.bio}" %></p>
         </div>
       </div>
+    </div>
 
     <div class="bookings col-sm-12 col-lg-6">
 
@@ -63,6 +66,6 @@
 
 
     </div>
-
+</div>
 
 
