@@ -1,6 +1,6 @@
-<div class="container">
-  <h1 id="hero-title">Create your service <%= @service.name %></h1>
-  <%#= render partial:"form", locals: { service: @service } %>
-  <%= render "form", service: @service %>
+<div class="background-service-new" style="background-image: url('<%= image_path 'dccomics.jpg' %>')">
+  <div class="container new-service-form">
+    <h1 id="hero-title">Time to create your super service!<%= @service.name %></h1>
+    <%= render "form", service: @service %>
+  </div>
 </div>
-
