@@ -7,7 +7,8 @@ class ServicesController < ApplicationController
     @markers = @services.geocoded.map do |service|
       {
         lat: service.latitude,
-        lng: service.longitude
+        lng: service.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { service: service })
       }
     end
   end

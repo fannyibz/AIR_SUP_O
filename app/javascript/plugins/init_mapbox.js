@@ -16,12 +16,19 @@ const initMapbox = () => {
       style: 'mapbox://styles/magalirousseau/ckhoq66jf0bmi19sfz24z2fs2'
     });
     const markers = JSON.parse(mapElement.dataset.markers);
-    markers.forEach((marker) => {
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .addTo(map);
-    });
+
+   const addMarkersToMap = (map, markers) => {
+      markers.forEach((marker) => {
+        const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
+
+        new mapboxgl.Marker()
+          .setLngLat([ marker.lng, marker.lat ])
+          .setPopup(popup) // add this
+          .addTo(map);
+      });
+    };
     fitMapToMarkers(map, markers);
+    addMarkersToMap(map, markers);
   }
 };
 
