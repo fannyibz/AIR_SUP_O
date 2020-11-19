@@ -27,6 +27,10 @@ import "bootstrap";
 import { loadDynamicBannerText } from '../components/banner';
 import { initMapbox } from '../plugins/init_mapbox';
 
+// calendar search bar
+import "../plugins/flatpickr"
+
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 

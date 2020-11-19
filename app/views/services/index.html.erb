@@ -24,15 +24,17 @@
             <div class="item">
               <%= text_field_tag :start_date,
                 params[:start_date],
-                class: "form-control",
+                class: "form-control datepicker",
+                id: "range_start",
                 placeholder: "When do you need it (start date)?"
               %>
             </div>
 
-              <div class="item">
-              <%= text_field_tag :start_date,
-                params[:start_date],
-                class: "form-control",
+              <div class="item d-none">
+              <%= text_field_tag :end_date,
+                params[:end_date],
+                class: "form-control datepicker",
+                id: "range_end",
                 placeholder: "When do you need it (end date)?"
               %>
             </div>
@@ -42,7 +44,6 @@
               </button>
             <% end %>
           </div>
-
 
       <div class="row">
         <div class="col-8" id="card-container">
