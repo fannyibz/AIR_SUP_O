@@ -1,3 +1,7 @@
-<h2><%= service.name %></h2>
-<p><%= service.price %></p>
-<p><%= service.user.username %></p>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('<%= cl_image_path service.photos.first.key, height: 150, width: 200, crop: :fill %>')">
+  <div class="container-fluid info-window pt-2 pb-1 px-4">
+    <h3><%= link_to service.name, service_path(service), class: "teext-centered" %></h3>
+    <p> <%= service.description %></p>
+    <p class="text-right"><%= service.price %> € / day <br> performed by : <%= service.user.username %></p>
+  </div>
+</div>

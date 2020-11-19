@@ -1,0 +1,20 @@
+.info-window {
+  background: #ff00001a;
+  margin-bottom: -8px;
+  color: white;
+}
+
+.info-window a {
+  color: white;
+  &:hover {
+    color: red;
+  }
+}
+
+button.mapboxgl-popup-close-button {
+  color: red;
+  font-weight: bold;
+  margin-right: -3px;
+  margin-top: -6px;
+}
+
