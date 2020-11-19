@@ -5,7 +5,7 @@ class Service < ApplicationRecord
   has_many :reviews, through: :bookings
   has_many_attached :photos
   validates :photos, presence: true
-# [...]
+
   include PgSearch::Model
 
   pg_search_scope :search_by_services_name_or_hero_username,
@@ -22,4 +22,8 @@ class Service < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
 end

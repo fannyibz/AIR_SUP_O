@@ -1,6 +1,7 @@
 
   <div class="container">
     <h1 id="hero-title">All heroes services</h1>
+
     <br>
 
           <div class="search-form-control form-group">
@@ -56,14 +57,39 @@
                   <div>
                     <h2><%= link_to service.name, service_path(service) %></h2>
                     <p><%= service.user.username %></p>
+
+      <div class="row">
+        <div class="col-8" id="card-container">
+          <div class="container">
+            <div class="row">
+              <% @services.each do |service| %>
+                <% if service.photos.any?%>
+                  <div class="col-md-12 col-lg-6 mt-4">
+                    <div class="card-power">
+                      <%= cl_image_tag service.photos.first.key %>
+                      <div class="card-power-infos">
+                        <div>
+                          <h2><%= link_to service.name, service_path(service) %></h2>
+                          <p><%= service.user.username %></p>
+                        </div>
+                        <h2 class="card-power-address"><%= service.address %></h2>
+                        <%= cl_image_tag service.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                      </div>
+                    </div>
+
                   </div>
-                  <h2 class="card-power-address"><%= service.address %></h2>
-                  <%= cl_image_tag service.user.avatar.key, class: "card-trip-user avatar-bordered" %>
-                </div>
-              </div>
+                <% end %>
+              <% end %>
             </div>
-          <% end %>
-        <% end %>
-    </div>
+          </div>
+        </div>
+        <div class="col-4" id="card-container">
+          <div id="map"
+            style="width: 100%; height: 600px;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+      </div>
   </div>
 

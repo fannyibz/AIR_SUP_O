@@ -21,6 +21,13 @@ class ServicesController < ApplicationController
       # @services = @services.search_by_booking_end_date(params[:end_date])
     end
 
+    @markers = @services.geocoded.map do |service|
+      {
+        lat: service.latitude,
+        lng: service.longitude
+      }
+    end
+
   end
 
   def show
