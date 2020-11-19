@@ -1,6 +1,6 @@
 <div class="container">
 
-  <%= link_to "Back to power list", services_path, class: "btn btn-primary" %>
+  <%#= link_to "Back to power list", services_path, class: "btn btn-primary" %>
 
   <% if policy(@service).edit? %>
     <%= link_to "Edit this service", edit_service_path, class: "btn btn-primary" %>
@@ -15,14 +15,12 @@
                 method: :delete,
                 data: { confirm: "Are you sure?" } %>
   <% end %>
-
-  <h1 class= "text-centered"> 🦸‍♂️ Super service details 🦸‍♀️ </h1>
-
-    <div class="container card-show-power">
-      <div class="row">
-        <div class="col-4 card-show-power">
-
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="row bg-white p-2 mb-2 shadow" >
+      <h1 class="m-auto"> 🦸‍♂️ Super service details 🦸‍♀️ </h1>
+    </div>
+      <div class="row bg-white p-2" style="border: 2px solid black">
+        <div class="col-4 p-0">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="border: 2px solid black">
             <div class="carousel-inner">
               <%# @service.photos.each do |photo| %>
               <div class="carousel-item active">
@@ -55,43 +53,38 @@
               </a>
             </div>
           </div>
-
         </div>
 
-        <div class="col-8">
-          <div class="all">
-
-            <div>
-              <h2 class= "title-big"><%= @service.name.capitalize %></h2>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
+        <div class="col-8" style="padding-left: 10px; padding-right: 0px">
+          <div class="main-service">
+            <div class="service-avatar ">
+              <h2 class= "m-auto title-big"><%= @service.name.capitalize %></h2>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" style="height: 70px; width: 70px" />
             </div>
 
-            <div>
-              <h3><i class="fas fa-bolt"></i> What do I offer?</h3>
+            <div class="service-description ">
+              <p><i class="fas fa-bolt"></i><strong> What do I offer?</strong> </p>
               <p><%= @service.description %></p>
-              <br>
-              <h3><i class="fas fa-map-marked-alt"></i> Where?</h3>
-              <p>this service is available in</p>
+
+              <p><i class="fas fa-map-marked-alt"></i><strong> Address</strong></p>
               <p><%= @service.address %></p>
-              <br>
-              <h3><i class="fas fa-money-check-alt"></i> Price: <%= @service.price %>€</h3>
+
+              <p><i class="fas fa-money-check-alt"></i><strong> Price</strong></p>
+              <p> <%= @service.price ? service.price : "00" %>€</p>
             </div>
 
+            <div class="calendar service-calendar " id="book-power">
+              <% if current_user != @service.user %>
+                <%= simple_form_for ([@service, @booking]) do |f| %>
+                  <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
+                  <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
+                  <%= f.button :submit, "Book this power!", class: "service-submit-btn" %>
+                <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="calendar" id="book-power">
-      <% if current_user != @service.user %>
-        <%= simple_form_for ([@service, @booking]) do |f| %>
-          <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker", id: "range_start"} %>
-          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
-          <%= f.button :submit, "Book this power!", class: "normal-btn" %>
-        <% end %>
-      <% end %>
-    </div>
-
     </div>
   </div>
 </div>
