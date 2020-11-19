@@ -1,5 +1,4 @@
 <div class="container-fluid">
-  <h1 class="header-dashboard"><%= "Hello, #{current_user.username}. How are you?" %></h1>
 
   <div class="row justify-content-between">
   
@@ -9,23 +8,25 @@
           <%= cl_image_tag current_user.avatar.key, class: "avatar-dashboard" %>
           <h2>Welcome on your logbook.</h2>
           <p><%= "." * 75 %></p>
-          <p><%= "Email - #{current_user.email}" %></p>
+          <p class="align-left-dashboard"><%= "Email - #{current_user.email}" %></p>
           <p><%= "." * 75 %></p>
-          <p>Password - ******</p>
-          <p><%= "." * 75 %></p>
-          <p><%= "." * 75 %></p>
-          <p><%= "Punchline - \"#{current_user.bio}\""%></p>
+          <p class="align-left-dashboard">Password - ******</p>
           <p><%= "." * 75 %></p>
           <p><%= "." * 75 %></p>
+          <p class="align-left-dashboard"><%= "Punchline - \"#{current_user.bio}\""%></p>
           <p><%= "." * 75 %></p>
-          <p>To-Do</p>
           <p><%= "." * 75 %></p>
           <p><%= "." * 75 %></p>
+          <p class="align-left-dashboard">To-Do</p>
           <p><%= "." * 75 %></p>
           <p><%= "." * 75 %></p>
           <p><%= "." * 75 %></p>
           <p><%= "." * 75 %></p>
-          <p>Dad jokes</p>
+          <p><%= "." * 75 %></p>
+          <p><%= "." * 75 %></p>
+          <p class="align-left-dashboard">Dad jokes</p>
+          <p><%= "." * 75 %></p>
+          <p><%= "." * 75 %></p>
           <p><%= "." * 75 %></p>
           <p><%= "." * 75 %></p>
           <p><%= "." * 75 %></p>
@@ -36,9 +37,10 @@
       </div>
     </div>
 
-    <div class="bookings col-sm-12 col-lg-8">
+    <div class="bookings-dashboard col-sm-12 col-lg-8">
+      <h1 class="header-dashboard"><%= "Hello, #{current_user.username}. How are you?" %></h1>
 
-      <h2 class="header-h2-dashboard">THEY BOOKED WITH ME</h2>
+      <h2 class="header-h2-dashboard">THEY BOOKED WITH ME.</h2>
         <% if @bookings_owner.present? %>
           <div class="row">
             <% @bookings_owner.each do |booking| %>
@@ -50,9 +52,9 @@
                     <div class="card-power-infos card-dashboard">
                       <div>
                         <h3><%= booking.service.name %></h3>
-                      </div>
                         <p class="card-power-date"><%= booking.start_date %></p>
-                        <%= cl_image_tag booking.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                      </div>
+                      <%= cl_image_tag booking.user.avatar.key, class: "card-trip-user avatar-bordered" %>
                     </div>
                   </div>
                 <% end %>
@@ -64,22 +66,24 @@
           <h3>No pending book for now...</h3>
         <% end %>
 
-      <h2 class="header-h2-dashboard">I BOOKED WITH</h2>
+      <h2 class="header-h2-dashboard">I BOOKED WITH.</h2>
         <% if @bookings_owner.present? %>
           <div class="row">
             <% @bookings_client.each do |booking| %>
 
               <div class="col-sm-4">
-                <div class="card-power mb-5">
-                  <%= cl_image_tag booking.service.photos.first.key %>
-                  <div class="card-power-infos card-dashboard">
-                    <div>
-                      <h3><%= link_to booking.service.name, service_path(@bookings_owner) %></h3>
-                    </div>
-                      <p class="card-power-date"><%= booking.start_date %></p>
+                <%= link_to service_path(@bookings_owner) do %>
+                  <div class="card-power mb-5">
+                    <%= cl_image_tag booking.service.photos.first.key %>
+                    <div class="card-power-infos card-dashboard">
+                      <div>
+                        <h3><%= booking.service.name %></h3>
+                        <p class="card-power-date"><%= booking.start_date %></p>
+                      </div>
                       <%= cl_image_tag booking.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                    </div>
                   </div>
-                </div>
+                <% end %>
               </div>
 
             <% end %>
@@ -88,23 +92,26 @@
           <h3>You have booked nothing yet...</h3>
         <% end %>
 
-      <h2 class="header-h2-dashboard">WHAT I PROPOSE</h2>
+      <h2 class="header-h2-dashboard">THE SERVICES I'M CURRENTLY SELLING.</h2>
 
       <% if @bookings_owner.present? %>
           <div class="row">
             <% @bookings_client.each do |booking| %>
 
+
               <div class="col-sm-4">
-                <div class="card-power mb-5">
-                  <%= cl_image_tag booking.service.photos.first.key %>
-                  <div class="card-power-infos card-dashboard">
-                    <div>
-                      <h3><%= link_to booking.service.name, service_path(@bookings_owner) %></h3>
-                    </div>
-                      <p class="card-power-date"><%= booking.start_date %></p>
+                <%= link_to service_path(@bookings_owner) do %>
+                  <div class="card-power mb-5">
+                    <%= cl_image_tag booking.service.photos.first.key %>
+                    <div class="card-power-infos card-dashboard">
+                      <div>
+                        <h3><%= booking.service.name %></h3>
+                        <p class="card-power-date"><%= booking.start_date %></p>
+                      </div>
                       <%= cl_image_tag booking.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                    </div>
                   </div>
-                </div>
+                <% end %>
               </div>
 
             <% end %>
@@ -114,30 +121,3 @@
       <% end %>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-<%
-=begin %>
-              <div class="col-sm-6">
-                <div class="card-power mb-5">
-                  <%= cl_image_tag booking.service.photos.first.key %>
-                  <div class="card-power-infos">
-                    <%= booking.user.username  %>
-                    <%= booking.service.name %>
-                    <h2 class="card-power-date"><%= booking.start_date %></h2>
-                  </div>
-               </div>
-              </div>
-
-<%
-=end %>
