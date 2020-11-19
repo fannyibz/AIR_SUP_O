@@ -11,18 +11,34 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home 🎁", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Offer your powers 🧬", new_service_path, class: "nav-link" %>
-          </li>
-           <li class="nav-item">
-            <%= link_to "Access powers 💊", services_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "My dashboard 🦹‍♂️", dashboard_path, class: "nav-link" %>
-          </li>
+          <%= link_to root_path, class: "nav-link" do %>
+            <li class="nav-item active d-flex">
+              <i class="fas fa-house-damage mr-1 mt-1"></i>
+              <p>Home</p>
+            </li>
+          <% end %>
+
+          <%= link_to new_service_path, class: "nav-link" do %>
+            <li class="nav-item d-flex">
+              <i class="fas fas fa-power-off mr-1 mt-1"></i>
+              <p>Offer my powers</p>
+            </li>
+          <% end %>
+
+          <%= link_to services_path, class: "nav-link" do %>
+            <li class="nav-item d-flex">
+              <i class="fas fa-syringe mr-1 mt-1"></i>
+              <p>Access powers</p>
+            </li>
+          <% end %>
+
+          <%= link_to dashboard_path, class: "nav-link" do %>
+            <li class="nav-item d-flex">
+              <i class="fab fa-superpowers mr-1 mt-1"></i>
+              <p>My dashboard</p>
+            </li>
+          <% end %>
+
           <li class="nav-item dropdown">
             <%= image_tag "joker.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
