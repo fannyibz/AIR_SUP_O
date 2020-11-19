@@ -7,10 +7,18 @@
 
 .active .nav-link {
   color: white!important;
+  transition: 0.4s color ease-in-out;
+  &:hover {
+    color: #ffed00!important;
+  }
 }
 
 .nav-link {
   color: #ffc4c4!important;
+  transition: 0.2s color ease-in-out;
+  &:hover {
+    color: #231e1e!important;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
