@@ -4,6 +4,23 @@ class ServicesController < ApplicationController
 
   def index
     @services = policy_scope(Service)
+
+    if params[:query].present?
+      @services = @services.search_by_services_name_or_hero_username(params[:query])
+    end
+
+    if params[:address].present?
+      @services = @services.search_by_services_address(params[:address])
+    end
+
+    if params[:start_date].present?
+      # @services = @services.search_by_booking_start_date(params[:start_date])
+    end
+
+    if params[:end_date].present?
+      # @services = @services.search_by_booking_end_date(params[:end_date])
+    end
+
   end
 
   def show

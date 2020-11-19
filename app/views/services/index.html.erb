@@ -1,8 +1,52 @@
 
   <div class="container">
     <h1 id="hero-title">All heroes services</h1>
-      <div class="row">
+    <br>
 
+          <div class="search-form-control form-group">
+
+            <div class="item">
+            <%= form_tag services_path, method: :get do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "What power or hero do you need?"
+              %>
+            </div>
+
+            <div class="item">
+              <%= text_field_tag :address,
+                params[:address],
+                class: "form-control",
+                placeholder: "What's your location?"
+              %>
+            </div>
+
+            <div class="item">
+              <%= text_field_tag :start_date,
+                params[:start_date],
+                class: "form-control",
+                placeholder: "When do you need it (start date)?"
+              %>
+            </div>
+
+              <div class="item">
+              <%= text_field_tag :start_date,
+                params[:start_date],
+                class: "form-control",
+                placeholder: "When do you need it (end date)?"
+              %>
+            </div>
+
+
+              <button class="item" name="button" type="submit" id="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            <% end %>
+
+          </div>
+
+      <div class="row">
         <% @services.each do |service| %>
           <% if service.photos.any?%>
             <div class="col-sm-12 col-md-6 col-lg-4" id="card-container">
