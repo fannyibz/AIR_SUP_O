@@ -70,7 +70,7 @@
               <p><%= @service.address %></p>
 
               <p><i class="fas fa-money-check-alt"></i><strong> Price</strong></p>
-              <p> <%= @service.price ? service.price : "00" %>€</p>
+              <p> <%= @service.price ? @service.price : "00" %>€</p>
             </div>
 
             <div class="calendar service-calendar " id="book-power">
