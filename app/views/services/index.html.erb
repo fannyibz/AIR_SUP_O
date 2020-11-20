@@ -64,7 +64,11 @@
                         </div>
 
                         <h2 class="card-power-address"><%= service.address %></h2>
-                        <%= cl_image_tag service.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                        <% service.user.avatar.attached? %>
+                          <%= cl_image_tag service.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                        <% else %>
+                          <%= image_tag "joker.jpg" %>
+                        <% end %>
                       </div>
                     </div>
                   </div>
