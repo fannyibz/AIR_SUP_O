@@ -2,19 +2,6 @@
 
   <%#= link_to "Back to power list", services_path, class: "btn btn-primary" %>
 
-  <% if policy(@service).edit? %>
-    <%= link_to "Edit this service", edit_service_path, class: "btn btn-primary" %>
-  <% end %>
-
-  <br>
-
-  <% if policy(@service).destroy? %>
-    <%= link_to "Delete #{@service.name}",
-                service_path(@service),
-                class: "btn btn-primary",
-                method: :delete,
-                data: { confirm: "Are you sure?" } %>
-  <% end %>
     <div class="row bg-white p-2 mb-2 shadow" >
       <h1 class="m-auto"> 🦸‍♂️ Super service details 🦸‍♀️ </h1>
     </div>
@@ -81,6 +68,23 @@
                   <%= f.button :submit, "Book this power!", class: "service-submit-btn" %>
                 <% end %>
               <% end %>
+              <br>
+              <br>
+
+              <% if policy(@service).edit? %>
+                <%= link_to "Edit this service", edit_service_path, class: "service-submit-btn" %>
+              <% end %>
+              <br>
+              <br>
+
+              <% if policy(@service).destroy? %>
+                <%= link_to "Delete #{@service.name}",
+                            service_path(@service),
+                            class: "service-submit-btn",
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+              <% end %>
+
             </div>
           </div>
         </div>
