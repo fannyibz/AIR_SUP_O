@@ -1,13 +1,11 @@
-<% content_for(:body_attributes) do %>
-  data-turbolinks="false"
-<% end %>
+
 <div class="container-fluid mt-5">
   <h1 id="hero-title">All heroes services</h1>
   <br>
         <div class="search-form-control form-group container">
 
           <div class="item">
-          <%= form_tag services_path, method: :get do %>
+          <%= form_tag services_path, method: :get, turbolinks: false do %>
             <%= text_field_tag :query,
               params[:query],
               class: "form-control",
