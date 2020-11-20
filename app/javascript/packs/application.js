@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import { loadDynamicBannerText } from '../components/banner';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initFlatPickr } from '../plugins/flatpickr';
 
 // calendar search bar
 import "../plugins/flatpickr"
@@ -37,6 +38,6 @@ import "../plugins/flatpickr"
 document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   initMapbox();
+  initFlatPickr();
   // Typed.js
 });
-
