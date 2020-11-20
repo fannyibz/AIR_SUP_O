@@ -1,0 +1,38 @@
+.main-service {
+  display: flex;
+  position: relative;
+  height: 100%;
+}
+
+.service-avatar {
+  img {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+  }
+  /* padding: 17px 5px; */
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-items: center;
+  height: 80px;
+  border: 2px solid black;
+}
+.service-description {
+  padding: 5px;
+  position: absolute;
+  top: 90px;
+  width: 60%;
+  text-align: justify;
+  height:  296px;
+  border: 2px solid black;
+}
+.service-calendar {
+  position: absolute;
+  padding: 5px;
+  top: 90px;
+  right: 0;
+  width: 39%;
+  height:  296px;
+  border: 2px solid black;
+}
