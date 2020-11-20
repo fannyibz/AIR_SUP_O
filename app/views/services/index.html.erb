@@ -8,7 +8,7 @@
             <%= text_field_tag :query,
               params[:query],
               class: "form-control",
-              placeholder: "What power or hero do you need?"
+              placeholder: "Search power or hero"
             %>
           </div>
 
@@ -25,7 +25,7 @@
               params[:start_date],
               class: "form-control datepicker",
               id: "range_start",
-              placeholder: "When do you need it (start date)?"
+              placeholder: "From (start date) ?"
             %>
           </div>
 
@@ -34,7 +34,7 @@
               nil,
               class: "form-control datepicker",
               id: "range_end",
-              placeholder: "When do you need it (end date)?"
+              placeholder: "To (end date) ?"
             %>
           </div>
 
@@ -91,7 +91,7 @@
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
-      
+
 
   </div>
       <%= link_to "Back to top", services_path(anchor: 'hero-title'), class: "btn btn-outline-primary mt-5 ml-3"%>
