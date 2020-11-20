@@ -1,5 +1,10 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   padding-top: 86px; // we need it because the navbar is sticked on the top.
+  
 }
 
 a {
