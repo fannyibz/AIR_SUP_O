@@ -138,7 +138,7 @@ puts "#{aquaman.username} created!"
 # super_paper
 super_paper = User.new(username: 'Super Paper', password: "123456", email: "superpaper@gmail.com", bio:"I create wonderfull toilet paper!!")
 
-file = URI.open("https://media.melty.fr/article-3963641-ratio15_720-f5/media.jpg")
+file = URI.open("https://cdna.artstation.com/p/assets/images/images/000/116/788/large/dan-luvisi-kick-ass-by-adonihs.jpg")
 super_paper.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
 super_paper.save!
 
