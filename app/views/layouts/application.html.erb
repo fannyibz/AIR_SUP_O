@@ -13,6 +13,9 @@
   </head>
 
   <body>
+    <% if content_for?(:body_attributes) %>
+      <%= yield(:body_attributes) %>
+    <% end %>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
