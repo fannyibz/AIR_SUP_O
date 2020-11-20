@@ -52,7 +52,7 @@
 
               <% @services.each do |service| %>
                 <% if service.photos.any?%>
-                  <div class="col-md-12 col-lg-6 mt-4">
+                  <div class="col-md-12 col-lg-4 mt-4">
 
                     <div class="card-power">
                       <%= cl_image_tag service.photos.first.key %>
