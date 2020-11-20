@@ -65,7 +65,7 @@
 #   file = URI.open(link)
 #   service.photos.attach(io: file, filename: "service", content_type: "image/jpg")
 #   service.save!
-  
+
 #   puts "#{service.name} created!"
 # end
 
@@ -164,12 +164,12 @@ photos = [
 # SUPER RESCUE (BATMAN)
 super_rescue_1 = Service.new(name: 'Super Rescue', description: "To book if you are in danger!", address: "16 villa Gaudelet, Paris", user_id: batman.id, price: 299)
 
-service_photos = photos.map do |photo|
-  URI.open(photo)
-end
+# service_photos = photos.map do |photo|
+#   URI.open(photo)
+# end
 
-service_photos.sample(3).each do |photo|
-  super_rescue_1.photos.attach(io: photo, filename: "service", content_type: "image/jpg")
+3.times do
+  super_rescue_1.photos.attach(io: photos.sample, filename: "service", content_type: "image/jpg")
 end
 
 super_rescue_1.save!
@@ -179,12 +179,12 @@ puts "#{super_rescue_1.name} created!"
 # SUPER KICKER (WONDERWOMAN)
 super_kicker = Service.new(name: 'Super Kicker', description: "To book if you want I kick some asses!", address: "12 rue Montgrand, Marseille", user_id: wonderwoman.id, price: 59)
 
-service_photos = photos.map do |photo|
-  URI.open(photo)
-end
+# service_photos = photos.map do |photo|
+#   URI.open(photo)
+# end
 
-service_photos.sample(3).each do |photo|
-  super_kicker.photos.attach(io: photo, filename: "service", content_type: "image/jpg")
+3.times do
+  super_kicker.photos.attach(io: photos.sample, filename: "service", content_type: "image/jpg")
 end
 
 super_kicker.save!
@@ -194,12 +194,12 @@ puts "#{super_kicker.name} created!"
 # SUPER ESCORT (AQUAMAN)
 super_escort_1 = Service.new(name: 'Super Escort', description: "To book if you are single (or not)!", address: "109 rue Saint-Lazare, Paris", user_id: aquaman.id, price: 99)
 
-service_photos = photos.map do |photo|
-  URI.open(photo)
-end
+# service_photos = photos.map do |photo|
+#   URI.open(photo)
+# end
 
-service_photos.sample(3).each do |photo|
-  super_escort_1.photos.attach(io: photo, filename: "service", content_type: "image/jpg")
+3.times do
+  super_escort_1.photos.attach(io: photos.sample, filename: "service", content_type: "image/jpg")
 end
 
 super_escort_1.save!
@@ -209,12 +209,12 @@ puts "#{super_escort_1.name} created!"
 # SUPER UBER (BATMAN)
 super_uber = Service.new(name: 'Super Uber', description: "To book if you want a cool and badass driver!", address: "17 rue de la République, Marseille", user_id: batman.id, price: 39)
 
-service_photos = photos.map do |photo|
-  URI.open(photo)
-end
+# service_photos = photos.map do |photo|
+#   URI.open(photo)
+# end
 
-service_photos.sample(3).each do |photo|
-  super_uber.photos.attach(io: photo, filename: "service", content_type: "image/jpg")
+3.times do
+  super_uber.photos.attach(io: photos.sample, filename: "service", content_type: "image/jpg")
 end
 
 super_uber.save!
@@ -224,12 +224,12 @@ puts "#{super_uber.name} created!"
 # SUPER COOKIES (SUPERMAN)
 super_cookies = Service.new(name: 'Super Cookies', description: "To book if you want some delicious cookies!", address: "23 Avenue de Wagram, Paris", user_id: superman.id, price: 16)
 
-service_photos = photos.map do |photo|
-  URI.open(photo)
-end
+# service_photos = photos.map do |photo|
+#   URI.open(photo)
+# end
 
-service_photos.sample(3).each do |photo|
-  super_cookies.photos.attach(io: photo, filename: "service", content_type: "image/jpg")
+3.times do
+  super_cookies.photos.attach(io: photos.sample, filename: "service", content_type: "image/jpg")
 end
 
 super_cookies.save!
@@ -239,12 +239,12 @@ puts "#{super_cookies.name} created!"
 # SUPER ESCORT (CATWOMAN)
 super_escort_2 = Service.new(name: 'Super Escort', description: "To book if you are single (or not)!", address: "32 Boulevard Haussmann, Paris", user_id: catwoman.id, price: 189)
 
-service_photos = photos.map do |photo|
-  URI.open(photo)
-end
+# service_photos = photos.map do |photo|
+#   URI.open(photo)
+# end
 
-service_photos.sample(3).each do |photo|
-  super_escort_2.photos.attach(io: photo, filename: "service", content_type: "image/jpg")
+3.times do
+  super_escort_2.photos.attach(io: photos.sample, filename: "service", content_type: "image/jpg")
 end
 
 super_escort_2.save!
@@ -254,12 +254,12 @@ puts "#{super_escort_2.name} created!"
 # SUPER RESCUE (WONDERWOMAN)
 super_rescue_2 = Service.new(name: 'Super Rescue', description: "To book if you are in danger!", address: "Place du Dome Centre commercial les 4 Temps, Puteaux", user_id: wonderwoman.id, price: 320)
 
-service_photos = photos.map do |photo|
-  URI.open(photo)
-end
+# service_photos = photos.map do |photo|
+#   URI.open(photo)
+# end
 
-service_photos.sample(3).each do |photo|
-  super_rescue_2.photos.attach(io: photo, filename: "service", content_type: "image/jpg")
+3.times do
+  super_rescue_2.photos.attach(io: photos.sample, filename: "service", content_type: "image/jpg")
 end
 
 super_rescue_2.save!
@@ -269,12 +269,12 @@ puts "#{super_rescue_2.name} created!"
 # SUPER SWIMMING (AQUAMAN)
 super_swimming = Service.new(name: 'Super Swimming', description: "To book if you want to know swimming!", address: "78 Avenue des Champs-Elysées, Paris", user_id: aquaman.id, price: 29)
 
-service_photos = photos.map do |photo|
-  URI.open(photo)
-end
+# service_photos = photos.map do |photo|
+#   URI.open(photo)
+# end
 
-service_photos.sample(3).each do |photo|
-  super_swimming.photos.attach(io: photo, filename: "service", content_type: "image/jpg")
+3.times do
+  super_swimming.photos.attach(io: photos.sample, filename: "service", content_type: "image/jpg")
 end
 
 super_swimming.save!
@@ -284,12 +284,12 @@ puts "#{super_swimming.name} created!"
 # SUPER SM (CATWOMAN)
 super_sm = Service.new(name: 'Super SM', description: "To book if you want... eumh, you know...", address: "33 voie des Sculpteurs, Puteaux", user_id: catwoman.id, price: 699)
 
-service_photos = photos.map do |photo|
-  URI.open(photo)
-end
+# service_photos = photos.map do |photo|
+#   URI.open(photo)
+# end
 
-service_photos.sample(3).each do |photo|
-  super_sm.photos.attach(io: photo, filename: "service", content_type: "image/jpg")
+3.times do
+  super_sm.photos.attach(io: photos.sample, filename: "service", content_type: "image/jpg")
 end
 
 super_sm.save!
@@ -299,12 +299,12 @@ puts "#{super_sm.name} created!"
 # SUPER RESCUE (SUPERMAN)
 super_rescue_3 = Service.new(name: 'Super Rescue', description: "To book if you are in danger!", address: "26 Avenue de l'Opéra, Paris", user_id: superman.id, price: 149)
 
-service_photos = photos.map do |photo|
-  URI.open(photo)
-end
+# service_photos = photos.map do |photo|
+#   URI.open(photo)
+# end
 
-service_photos.sample(3).each do |photo|
-  super_rescue_3.photos.attach(io: photo, filename: "service", content_type: "image/jpg")
+3.times do
+  super_rescue_3.photos.attach(io: photos.sample, filename: "service", content_type: "image/jpg")
 end
 
 super_rescue_3.save!
