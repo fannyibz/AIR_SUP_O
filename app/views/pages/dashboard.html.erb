@@ -1,10 +1,14 @@
 <div>
   <div class="row justify-content-between">
-  
+
     <div class="col-sm-12 col-lg-4">
       <div class="row">
         <div class="profile">
-          <%= cl_image_tag current_user.avatar.key, class: "avatar-dashboard" %>
+          <% if current_user.avatar.attached? %>
+            <%= cl_image_tag current_user.avatar.key, class: "avatar-dashboard" %>
+          <% else %>
+            <%= image_tag "joker.jpg", class:"avatar" %>
+          <% end %>
           <h2>Welcome on your logbook.</h2>
           <p><%= "." * 75 %></p>
           <p class="align-left-dashboard"><%= "Email - #{current_user.email}" %></p>
