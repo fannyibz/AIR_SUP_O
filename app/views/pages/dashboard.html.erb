@@ -66,12 +66,12 @@
         <% end %>
 
       <h2 class="header-h2-dashboard">WHAT I BOOKED.</h2>
-        <% if @bookings_owner.present? %>
+        <% if @bookings_client.present? %>
           <div class="row">
             <% @bookings_client.each do |booking| %>
 
               <div class="col-sm-4">
-                <%= link_to service_path(@bookings_owner) do %>
+                <%= link_to service_path(booking.service) do %>
                   <div class="card-power mb-5">
                     <%= cl_image_tag booking.service.photos.first.key %>
                     <div class="card-power-infos card-dashboard">
@@ -79,7 +79,7 @@
                         <h3><%= booking.service.name %></h3>
                         <p class="card-power-date"><%= booking.start_date %></p>
                       </div>
-                      <%= cl_image_tag booking.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                      <%= cl_image_tag booking.service.user.avatar.key, class: "card-trip-user avatar-bordered" %>
                     </div>
                   </div>
                 <% end %>
@@ -93,21 +93,20 @@
 
       <h2 class="header-h2-dashboard">SERVICES I'M CURRENTLY SELLING.</h2>
 
-      <% if @bookings_owner.present? %>
+      <% if @current_services.present? %>
           <div class="row">
-            <% @bookings_client.each do |booking| %>
+            <% @current_services.each do |service| %>
 
 
               <div class="col-sm-4">
-                <%= link_to service_path(@bookings_owner) do %>
+                <%= link_to service_path(service) do %>
                   <div class="card-power mb-5">
-                    <%= cl_image_tag booking.service.photos.first.key %>
+                    <%= cl_image_tag service.photos.first.key %>
                     <div class="card-power-infos card-dashboard">
                       <div>
-                        <h3><%= booking.service.name %></h3>
-                        <p class="card-power-date"><%= booking.start_date %></p>
+                        <h3><%= service.name %></h3>
                       </div>
-                      <%= cl_image_tag booking.user.avatar.key, class: "card-trip-user avatar-bordered" %>
+                      <%= cl_image_tag service.user.avatar.key, class: "card-trip-user avatar-bordered" %>
                     </div>
                   </div>
                 <% end %>
