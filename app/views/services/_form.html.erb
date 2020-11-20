@@ -1,13 +1,14 @@
 <div class="row">
   <div class="col-8 offset-2">
-  
+
       <%= simple_form_for service do |f| %>
         <%= f.input :name, label: "What service do you offer?" %>
         <%= f.input :description, label: "How do you proceed with your power? (description)" %>
         <%= f.input :address, label: "Where do you perform this service? (full address)" %>
         <%= f.input :price, label: "What's your price?" %>
         <%= f.input :photos, label: "Show us a picture of your power in action!", as: :file, required: true, input_html: {multiple: true} %>
-        <%= f.submit "FLOWER POWER!", class: "btn btn-success btn-form" %>
+        <%= f.submit "FLOWER POWER!", class: "normal-btn btn-form" %>
+<!--         class: "btn btn-success btn-form" -->
       <% end %>
 
   </div>

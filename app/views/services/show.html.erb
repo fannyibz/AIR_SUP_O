@@ -2,47 +2,21 @@
 
   <%#= link_to "Back to power list", services_path, class: "btn btn-primary" %>
 
-  <% if policy(@service).edit? %>
-    <%= link_to "Edit this service", edit_service_path, class: "btn btn-primary" %>
-  <% end %>
-
-  <br>
-
-  <% if policy(@service).destroy? %>
-    <%= link_to "Delete #{@service.name}",
-                service_path(@service),
-                class: "btn btn-primary",
-                method: :delete,
-                data: { confirm: "Are you sure?" } %>
-  <% end %>
     <div class="row bg-white p-2 mb-2 shadow" >
       <h1 class="m-auto"> 🦸‍♂️ Super service details 🦸‍♀️ </h1>
     </div>
-      <div class="row bg-white p-2" style="border: 2px solid black">
+      <div class="row bg-white p-2 container-show" style="border: 2px solid black">
         <div class="col-4 p-0">
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="border: 2px solid black">
             <div class="carousel-inner">
-              <%# @service.photos.each do |photo| %>
-              <div class="carousel-item active">
-                <% if @service.photos[0] %>
-                  <%= cl_image_tag @service.photos[0].key, class: "d-block w-100" %>
-                <% end %>
-              </div>
-              <%# end %>
-              <div class="carousel-item">
-                <% if @service.photos[1] != nil %>
-                  <%= cl_image_tag @service.photos[1].key, class: "d-block w-100" %>
-                <% else %>
-                  <%= cl_image_tag @service.photos[0].key, class: "d-block w-100" %>
-                <% end %>
-              </div>
-              <div class="carousel-item">
-                <% if @service.photos[2] != nil %>
-                  <%= cl_image_tag @service.photos[2].key, class: "d-block w-100" %>
-                <% else %>
-                  <%= cl_image_tag @service.photos[0].key, class: "d-block w-100" %>
-                <% end %>
-              </div>
+              <% @service.photos.each_with_index do |photo, index| %>
+                <div class="carousel-item <%= "active" if index == 0 %> ">
+                <%# if @service.photos[0] %>
+                  <%= cl_image_tag photo.key, class: "d-block w-100" %>
+                <%# end %>
+                </div>
+              <% end %>
+
               <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -59,7 +33,11 @@
           <div class="main-service">
             <div class="service-avatar ">
               <h2 class= "m-auto title-big"><%= @service.name.capitalize %></h2>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" style="height: 70px; width: 70px" />
+
+              <!-- <img  style="height: 70px; width: 70px" /> -->
+
+              <%= cl_image_tag @service.user.avatar.key, class: "avatar-show" %>
+
             </div>
 
             <div class="service-description ">
@@ -81,6 +59,23 @@
                   <%= f.button :submit, "Book this power!", class: "service-submit-btn" %>
                 <% end %>
               <% end %>
+              <br>
+              <br>
+
+              <% if policy(@service).edit? %>
+                <%= link_to "Edit this service", edit_service_path, class: "service-submit-btn" %>
+              <% end %>
+              <br>
+              <br>
+
+              <% if policy(@service).destroy? %>
+                <%= link_to "Delete #{@service.name}",
+                            service_path(@service),
+                            class: "service-submit-btn",
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+              <% end %>
+
             </div>
           </div>
         </div>
